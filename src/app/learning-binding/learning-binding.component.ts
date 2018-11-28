@@ -7,4 +7,11 @@ import { Component } from "@angular/core";
 
 export class LearningBindingComponent{
 
+    public onClick(){
+        console.log('Evento do click disparado!');
+    }
+
+    public onMouseOver(){
+        console.log('Evento do mouse disparado!');
+    }
 }

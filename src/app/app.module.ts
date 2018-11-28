@@ -5,9 +5,12 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+import { LearningBindingComponent } from "./learning-binding/learning-binding.component";
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LearningBindingComponent
   ],
   imports: [
     BrowserModule,
