@@ -1,3 +1,8 @@
 <button type="text" class="form-control" (click)="onClick()">Event binding</button>
 
 <button class="form-control" (mouseover)="onMouseOver()">On Mouser Over</button>
+
+<br><br>
+
+<input type="text" (keyup)="onKeyUp($event)" [value]="userName">
+<strong>Valor da variável 'userName': </strong> {{ userName }}
