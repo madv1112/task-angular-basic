@@ -6,3 +6,8 @@
 
 <input type="text" (keyup)="onKeyUp($event)" [value]="userName">
 <strong>Valor da variável 'userName': </strong> {{ userName }}
+
+<br><br>
+
+<input type="text" [(ngModel)]="userName">
+<strong>Valor da variável 'userName': </strong> {{ userName }}

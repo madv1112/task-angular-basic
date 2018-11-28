@@ -11,7 +11,7 @@ export class LearningBindingComponent{
     public userEmail: string;
 
     constructor(){
-        this.userName = "User nome";
+        this.userName = "Nome Inicial";
         this.userEmail = "user email"
     }
 
