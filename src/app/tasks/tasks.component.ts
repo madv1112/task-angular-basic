@@ -11,16 +11,18 @@ import { TaskService } from "./shared/task.service";
 
 export class TaskComponent implements OnInit{
 
-    public tasks: Array<Task>;
+    public tasks: any = [];
     public selectedTask: Task;
-    public taskService: TaskService;
 
-    public constructor(taskService: TaskService){
-        this.taskService = taskService;
-    }
+    public constructor(private taskService: TaskService){}
 
     ngOnInit(){
-        this.tasks = this.taskService.getTasks();
+        this.taskService.getTasks()
+            .then((task) => this.tasks = task)
+            .catch((error_msg) => {
+                alert(error_msg);
+            })
+            
     }
 
     onSelect(task: Task): void{
