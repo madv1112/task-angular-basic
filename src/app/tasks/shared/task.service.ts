@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 
 import { Task } from "./task.model";
+import { findLast } from "@angular/compiler/src/directive_resolver";
+import { resolve } from "url";
 
 const TASK: Task[] = [
     {id: 1, title: 'Tarefa número 1'},
@@ -15,22 +17,29 @@ const TASK: Task[] = [
 
 export class TaskService{
 
-    public getTasks(): Promise<{}>{
+    public getTasks(): Promise<Task[]>{
 
-        let promise = new Promise(function(resolve, reject){
-            if(TASK.length > 0){
-              resolve(TASK);
-            }else{
-              let error_msg = "Não há informações sobre tarefas agendadas.";
-              reject(error_msg)
-            }
-          })
-          return promise;
+      let promise:any = new Promise((resolve, reject) => {
+        if(TASK.length > 0){
+          resolve(TASK);
+        }else{
+          let error_msg = "Não há informações sobre tarefas agendadas.";
+          reject(error_msg)
+        }
+      });
+
+      return promise;
     }
 
-    public getTask(): Promise<{}>{
+    public getImportantTask(): Promise<Task[]>{
 
         return  Promise.resolve(TASK.slice(0, 3));
+    }
+
+    public gatTask(id: number): Promise<Task>{
+
+      return this.getTasks()
+        .then( (tasks: any) => tasks.find(task => task.id === id))
     }
 
 }
