@@ -25,8 +25,12 @@ export class TaskService{
               reject(error_msg)
             }
           })
-
           return promise;
-        }
+    }
+
+    public getTask(): Promise<{}>{
+
+        return  Promise.resolve(TASK.slice(0, 3));
+    }
 
 }
