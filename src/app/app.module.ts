@@ -11,14 +11,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TaskComponent } from "./tasks/tasks.component";
 import { TaskDetailComponent } from "./tasks/task-detail/task-detail.component";
+
 import { TaskService } from "./tasks/shared/task.service";
 
-const ROUTES = RouterModule.forRoot([
-  {path: 'dashboard', component: DashboardComponent},
-  {path: 'tasks', component: TaskComponent},
-  {path: 'tasks/:id', component: TaskDetailComponent},
-  {path: '', redirectTo: '/dashboard', pathMatch: 'full'}
-])
+import { AppRoutingModule } from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -32,8 +28,7 @@ const ROUTES = RouterModule.forRoot([
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule,
-    ROUTES
+    AppRoutingModule
   ],
   providers: [TaskService],
   bootstrap: [AppComponent]
